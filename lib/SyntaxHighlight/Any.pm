@@ -5,7 +5,7 @@ use strict;
 use warnings;
 use Log::Any '$log';
 
-our $VERSION = '0.01'; # VERSION
+our $VERSION = '0.02'; # VERSION
 
 require Exporter;
 our @ISA       = qw(Exporter);
@@ -106,7 +106,8 @@ sub highlight_string {
         }
     }
 
-    die "No syntax highlighting backend is available";
+    $log->warn("No syntax highlighting backend is available");
+    return $str;
 }
 
 sub detect_language {
@@ -133,7 +134,7 @@ SyntaxHighlight::Any - Common interface for syntax highlighting and detecting la
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 SYNOPSIS
 
@@ -175,10 +176,13 @@ C<%opts> is optional. Known options:
 
 =head2 highlight_string($code, \%opts) => STR
 
-Syntax-highlight C<$code> and return the highlighted string. Die on error (e.g.
-no backends available or unexpected output from backend). Will choose the
+Syntax-highlight C<$code> and return the highlighted string. Will choose an
 appropriate and available backend which is capable of formatting code in the
-specified/detected language and to the specified output.
+specified/detected language and to the specified output. Die on error (e.g.
+unexpected output from backend).
+
+Will return C<$code> as-is if no backends are available (a warning is produced
+via L<Log::Any> though).
 
 By default try to detect whether to output HTML code or ANSI codes (see
 C<output> option). By default try to detect language of C<$code>.

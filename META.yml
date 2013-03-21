@@ -23,4 +23,4 @@ requires:
 resources:
   homepage: http://metacpan.org/release/SyntaxHighlight-Any
   repository: http://github.com/sharyanto/perl-SyntaxHighlight-Any
-version: 0.01
+version: 0.02

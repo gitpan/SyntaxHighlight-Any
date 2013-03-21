@@ -10,7 +10,7 @@ use File::Slurp;
 use Getopt::Long;
 use SyntaxHighlight::Any qw(highlight_string list_languages);
 
-our $VERSION = '0.01'; # VERSION
+our $VERSION = '0.02'; # VERSION
 
 my %opts;
 Getopt::Long::Configure("permute");
@@ -63,7 +63,7 @@ highlight-string - Syntax-highlight code using various backends
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 AUTHOR
 

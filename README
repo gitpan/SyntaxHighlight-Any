@@ -3,7 +3,7 @@ NAME
     detecting language in code
 
 VERSION
-    version 0.01
+    version 0.02
 
 SYNOPSIS
      use SyntaxHighlight::Any qw(highlight_string detect_language);
@@ -36,11 +36,13 @@ FUNCTIONS
     %opts is optional. Known options:
 
   highlight_string($code, \%opts) => STR
-    Syntax-highlight $code and return the highlighted string. Die on error
-    (e.g. no backends available or unexpected output from backend). Will
-    choose the appropriate and available backend which is capable of
-    formatting code in the specified/detected language and to the specified
-    output.
+    Syntax-highlight $code and return the highlighted string. Will choose an
+    appropriate and available backend which is capable of formatting code in
+    the specified/detected language and to the specified output. Die on
+    error (e.g. unexpected output from backend).
+
+    Will return $code as-is if no backends are available (a warning is
+    produced via Log::Any though).
 
     By default try to detect whether to output HTML code or ANSI codes (see
     "output" option). By default try to detect language of $code.
