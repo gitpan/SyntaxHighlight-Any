@@ -3,7 +3,7 @@ NAME
     detecting language in code
 
 VERSION
-    version 0.02
+    version 0.03
 
 SYNOPSIS
      use SyntaxHighlight::Any qw(highlight_string detect_language);
@@ -92,8 +92,6 @@ BACKENDS
     Please make sure you install desired backends.
 
 TODO
-    *   Complete list of languages (from Pygments and source-highlight)
-
     *   Option to select preferred (or change choosing order of) backends
 
     *   Option: color theme

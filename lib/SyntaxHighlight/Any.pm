@@ -5,18 +5,32 @@ use strict;
 use warnings;
 use Log::Any '$log';
 
-our $VERSION = '0.02'; # VERSION
+our $VERSION = '0.03'; # VERSION
 
 require Exporter;
 our @ISA       = qw(Exporter);
 our @EXPORT_OK = qw(highlight_string detect_language list_languages);
 
 our %LANGS = (
-    yaml => {pygments => 'yaml'},
-    perl => {pygments => 'perl', sh => 'perl'},
-    json => {pygments => 'json', sh => 'js'  },
-    js   => {pygments => 'js'  , sh => 'js'  },
-    php  => {pygments => 'php' , sh => 'php' },
+    yaml       => {pygments => 'yaml'},
+    perl       => {pygments => 'perl', sh => 'perl'},
+    json       => {pygments => 'json', sh => 'js'  },
+    js         => {pygments => 'js'  , sh => 'js'  },
+    php        => {pygments => 'php' , sh => 'php' },
+    apacheconf => {pygments => 'apacheconf'},
+    bash       => {pygments => 'bash', sh => 'bash'},
+    sh         => {pygments => 'sh'  , sh => 'sh'  },
+    c          => {pygments => 'c'   , sh => 'c'   },
+    cpp        => {pygments => 'cpp' , sh => 'cc'  },
+    css        => {pygments => 'css' , sh => 'css' },
+    diff       => {pygments => 'diff', sh => 'diff'},
+    html       => {pygments => 'html', sh => 'html'},
+    ini        => {pygments => 'ini' , sh => 'ini' },
+    makefile   => {pygments => 'makefile', sh => 'makefile'},
+    python     => {pygments => 'python', sh => 'python'},
+    ruby       => {pygments => 'ruby', sh => 'ruby'},
+    sql        => {pygments => 'sql' , sh => 'sql' },
+    xml        => {pygments => 'xml' , sh => 'xml' },
 );
 
 sub _try_source_highlight_binary {
@@ -106,7 +120,8 @@ sub highlight_string {
         }
     }
 
-    $log->warn("No syntax highlighting backend is available");
+    $log->warnf("No syntax highlighting backend for (l=%s, o=%s) is available",
+                $opts->{lang}, $opts->{output});
     return $str;
 }
 
@@ -134,7 +149,7 @@ SyntaxHighlight::Any - Common interface for syntax highlighting and detecting la
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 SYNOPSIS
 
@@ -237,8 +252,6 @@ make sure you install desired backends.
 =head1 TODO
 
 =over
-
-=item * Complete list of languages (from Pygments and source-highlight)
 
 =item * Option to select preferred (or change choosing order of) backends
 
