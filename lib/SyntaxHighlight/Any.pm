@@ -5,7 +5,7 @@ use strict;
 use warnings;
 use Log::Any '$log';
 
-our $VERSION = '0.03'; # VERSION
+our $VERSION = '0.04'; # VERSION
 
 require Exporter;
 our @ISA       = qw(Exporter);
@@ -139,9 +139,11 @@ sub list_languages {
 1;
 #ABSTRACT: Common interface for syntax highlighting and detecting language in code
 
-
 __END__
+
 =pod
+
+=encoding UTF-8
 
 =head1 NAME
 
@@ -149,7 +151,7 @@ SyntaxHighlight::Any - Common interface for syntax highlighting and detecting la
 
 =head1 VERSION
 
-version 0.03
+This document describes version 0.04 of SyntaxHighlight::Any (from Perl distribution SyntaxHighlight-Any), released on 2014-05-17.
 
 =head1 SYNOPSIS
 
@@ -162,13 +164,13 @@ version 0.03
      $blanks++ unless /\S/;
  }
  EOT
- say highlight_string($str);       # syntax-highlighted code output to terminal
+ say highlight_string($str, {lang=>"perl"});
  my @lang = detect_language($str); # => ("perl")
 
 =head1 DESCRIPTION
 
 B<CAVEAT: EARLY DEVELOPMENT MODULE. SOME FUNCTIONS NOT YET IMPLEMENTED. HELP ON
-ADDING BACKENDS APPRECATED.>
+ADDING BACKENDS APPRECIATED.>
 
 This module provides a common interface for syntax highlighting and detecting
 programming language in code.
@@ -236,14 +238,6 @@ detection fails, C<ansi> is chosen.
 
 List known languages.
 
-=head1 LANGUAGES
-
-Note: case-sensitive.
-
- perl
- json
- yaml
-
 =head1 BACKENDS
 
 Currently, the distribution does not pull the backends as dependencies. Please
@@ -268,16 +262,31 @@ L<JSON::Color> or L<Syntax::Highlight::JSON> (despite the module name, the
 latter is an encoder, not strictly a string syntax highlighter). For YAML
 there's L<YAML::Tiny::Color>.
 
+=head1 HOMEPAGE
+
+Please visit the project's homepage at L<https://metacpan.org/release/SyntaxHighlight-Any>.
+
+=head1 SOURCE
+
+Source repository is at L<https://github.com/sharyanto/perl-SyntaxHighlight-Any>.
+
+=head1 BUGS
+
+Please report any bugs or feature requests on the bugtracker website L<https://rt.cpan.org/Public/Dist/Display.html?Name=SyntaxHighlight-Any>
+
+When submitting a bug or request, please include a test-file or a
+patch to an existing test-file that illustrates the bug or desired
+feature.
+
 =head1 AUTHOR
 
 Steven Haryanto <stevenharyanto@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Steven Haryanto.
+This software is copyright (c) 2014 by Steven Haryanto.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

@@ -3,7 +3,8 @@ NAME
     detecting language in code
 
 VERSION
-    version 0.03
+    This document describes version 0.04 of SyntaxHighlight::Any (from Perl
+    distribution SyntaxHighlight-Any), released on 2014-05-17.
 
 SYNOPSIS
      use SyntaxHighlight::Any qw(highlight_string detect_language);
@@ -15,12 +16,12 @@ SYNOPSIS
          $blanks++ unless /\S/;
      }
      EOT
-     say highlight_string($str);       # syntax-highlighted code output to terminal
+     say highlight_string($str, {lang=>"perl"});
      my @lang = detect_language($str); # => ("perl")
 
 DESCRIPTION
     CAVEAT: EARLY DEVELOPMENT MODULE. SOME FUNCTIONS NOT YET IMPLEMENTED.
-    HELP ON ADDING BACKENDS APPRECATED.
+    HELP ON ADDING BACKENDS APPRECIATED.
 
     This module provides a common interface for syntax highlighting and
     detecting programming language in code.
@@ -80,13 +81,6 @@ FUNCTIONS
   list_languages() => LIST
     List known languages.
 
-LANGUAGES
-    Note: case-sensitive.
-
-     perl
-     json
-     yaml
-
 BACKENDS
     Currently, the distribution does not pull the backends as dependencies.
     Please make sure you install desired backends.
@@ -104,11 +98,26 @@ SEE ALSO
     the latter is an encoder, not strictly a string syntax highlighter). For
     YAML there's YAML::Tiny::Color.
 
+HOMEPAGE
+    Please visit the project's homepage at
+    <https://metacpan.org/release/SyntaxHighlight-Any>.
+
+SOURCE
+    Source repository is at
+    <https://github.com/sharyanto/perl-SyntaxHighlight-Any>.
+
+BUGS
+    Please report any bugs or feature requests on the bugtracker website
+    <https://rt.cpan.org/Public/Dist/Display.html?Name=SyntaxHighlight-Any>
+
+    When submitting a bug or request, please include a test-file or a patch
+    to an existing test-file that illustrates the bug or desired feature.
+
 AUTHOR
     Steven Haryanto <stevenharyanto@gmail.com>
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2013 by Steven Haryanto.
+    This software is copyright (c) 2014 by Steven Haryanto.
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.
