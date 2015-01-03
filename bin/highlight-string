@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!perl
 
 use 5.010;
 use autodie;
@@ -10,7 +10,7 @@ use File::Slurp::Tiny qw(read_file);
 use Getopt::Long;
 use SyntaxHighlight::Any qw(highlight_string list_languages);
 
-our $VERSION = '0.04'; # VERSION
+our $VERSION = '0.05'; # VERSION
 
 my %opts;
 Getopt::Long::Configure("permute");
@@ -68,7 +68,7 @@ highlight-string - Syntax-highlight code using various backends
 
 =head1 VERSION
 
-This document describes version 0.04 of highlight-string (from Perl distribution SyntaxHighlight-Any), released on 2014-05-17.
+This document describes version 0.05 of highlight-string (from Perl distribution SyntaxHighlight-Any), released on 2015-01-03.
 
 =head1 SYNOPSIS
 
@@ -99,11 +99,11 @@ feature.
 
 =head1 AUTHOR
 
-Steven Haryanto <stevenharyanto@gmail.com>
+perlancar <perlancar@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Steven Haryanto.
+This software is copyright (c) 2015 by perlancar@cpan.org.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

@@ -1,11 +1,12 @@
 package SyntaxHighlight::Any;
 
+our $DATE = '2015-01-03'; # DATE
+our $VERSION = '0.05'; # VERSION
+
 use 5.010001;
 use strict;
 use warnings;
 use Log::Any '$log';
-
-our $VERSION = '0.04'; # VERSION
 
 require Exporter;
 our @ISA       = qw(Exporter);
@@ -137,7 +138,7 @@ sub list_languages {
 }
 
 1;
-#ABSTRACT: Common interface for syntax highlighting and detecting language in code
+# ABSTRACT: Common interface for syntax highlighting and detecting language in code
 
 __END__
 
@@ -151,7 +152,7 @@ SyntaxHighlight::Any - Common interface for syntax highlighting and detecting la
 
 =head1 VERSION
 
-This document describes version 0.04 of SyntaxHighlight::Any (from Perl distribution SyntaxHighlight-Any), released on 2014-05-17.
+This document describes version 0.05 of SyntaxHighlight::Any (from Perl distribution SyntaxHighlight-Any), released on 2015-01-03.
 
 =head1 SYNOPSIS
 
@@ -243,18 +244,6 @@ List known languages.
 Currently, the distribution does not pull the backends as dependencies. Please
 make sure you install desired backends.
 
-=head1 TODO
-
-=over
-
-=item * Option to select preferred (or change choosing order of) backends
-
-=item * Option: color theme
-
-=item * Function to detect/list available backends
-
-=back
-
 =head1 SEE ALSO
 
 For syntax-highlighting (as well as encoding/formatting) to JSON, there's
@@ -280,11 +269,11 @@ feature.
 
 =head1 AUTHOR
 
-Steven Haryanto <stevenharyanto@gmail.com>
+perlancar <perlancar@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Steven Haryanto.
+This software is copyright (c) 2015 by perlancar@cpan.org.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
